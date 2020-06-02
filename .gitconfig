@@ -1,0 +1,6 @@
+[user]
+#	email = claytonjsalem@gmail.com
+	name = Clayton Salem
+[core]
+	editor = vim
+	excludesfile = /home/csalem/.gitignore

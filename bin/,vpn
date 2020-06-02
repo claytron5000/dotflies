@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo openconnect <url> -v -u <user> --authgroup=<group>
+

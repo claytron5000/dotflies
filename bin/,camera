@@ -1,0 +1,14 @@
+#/bin/bash
+
+# Right now this is just a list of commands, running this as-is is untested
+# depends on these packages sudo apt-get install gphoto2 v4l2loopback-utils ffmpeg
+
+# Check for processes using gphoto
+pgrep -fla gphoto2
+# Kill those processes
+sudo pkill -f gphoto2
+# Focus the camera (this only happens once)
+gphoto2 --set-config-value autofocusdrive="on"
+# Run the video capture and push it through ffmpeg
+gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video2
+
